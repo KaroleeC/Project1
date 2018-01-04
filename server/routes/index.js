@@ -16,12 +16,4 @@ router.route('/reviews')
     .get()
     .post()
 
-
-
-
-
-
-
-
-
 module.exports = router;
