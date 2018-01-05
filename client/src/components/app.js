@@ -5,7 +5,7 @@ import List from './restaurant-list';
 const App = () => (
   <div>
       App div
-    
+     <List/>
   </div>
 
 )

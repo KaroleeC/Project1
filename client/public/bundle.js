@@ -21195,7 +21195,8 @@ var App = function App() {
   return _react2.default.createElement(
     'div',
     null,
-    'App div'
+    'App div',
+    _react2.default.createElement(_restaurantList2.default, null)
   );
 };
 
@@ -21250,8 +21251,6 @@ var _redux = __webpack_require__(9);
 
 var _reactRedux = __webpack_require__(55);
 
-var _restaurantsreducer = __webpack_require__(73);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21273,9 +21272,13 @@ var List = function (_Component) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'p',
+                'div',
                 null,
-                ' The Restaurant List '
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    ' The Restaurant List '
+                )
             );
         }
     }]);
@@ -21288,8 +21291,8 @@ var List = function (_Component) {
 
 
 function mapStateToProps(state) {
-    return restaurants;
-}
+    return { restaurants: state.restaurants };
+};
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(List);
 
@@ -21303,13 +21306,10 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(List);
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-//function containing object for restaurant state data
 
-var restaurantsreducer = function restaurantsreducer() {
-  return [];
+exports.default = function () {
+  return [{ name: 'x' }];
 };
-
-exports.default = restaurantsreducer;
 
 /***/ })
 /******/ ]);
