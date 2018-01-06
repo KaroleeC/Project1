@@ -6,12 +6,20 @@ import { connect } from 'react-redux';
 
 class List extends Component{
 
+    renderListItem() {
+        console.log(this.props.restuarants)
+        return this.props.restaurants.map((restaurant) => {
+            return (
+                <li key={restaurant.id}>{restaurant.name}</li>
+            )
+        })
+    }
 
     render() {
         return(
-            <div>
-            <p> The Restaurant List </p>
-            </div>
+            <ul>
+                {this.renderListItem()}
+            </ul>
         )
 }
 
