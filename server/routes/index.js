@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const searchController = require('../controllers/searchController')
+const restaurantController = require('../controllers/restaurantController')
 // require path to user controller
 
 router.route('/user') 
@@ -7,13 +9,20 @@ router.route('/user')
     .post()
 
 
+router.route('/search')
+    .get(searchController.search)
+    .post()
+
+
 router.route('/restaurant') 
-    .get()
+    .get(restaurantController.CreateRestaurant)    
     .post()
 
 
 router.route('/reviews') 
     .get()
     .post()
+
+
 
 module.exports = router;
