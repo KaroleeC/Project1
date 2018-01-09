@@ -1,9 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Review from './DisplayReviews';
+import List from './restaurant-list';
 
 
 class User extends Component{
+    constructor(props) {
+        super(props)
+        this.renderCondition = this.renderCondition.bind(this);
+
+    }
+    
+    renderCondition() {
+        console.log(this.props.user.searchyelp);
+        if( this.props.user.searchyelp === "true"){
+            return ( <div> <List/> </div> )
+
+        } else {
+            return (
+                <div >
+                Comments
+                <Review userindex="1" username="Kari"/>
+                </div>
+            )
+        }
+
+    }
 
 
     render() {
@@ -14,10 +36,7 @@ class User extends Component{
             <p>You are located at: {this.props.user.location} </p>
             <p>Your Bio</p>
             <p> {this.props.user.bio} </p>
-            <div >
-            Comments
-            <Review user='1'/>
-            </div>
+            {this.renderCondition()}
             
             </div>
         )

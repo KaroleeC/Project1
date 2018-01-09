@@ -4,12 +4,23 @@ import { connect } from 'react-redux';
 
 class Review extends Component{
 
+    constructor(props){
+        super(props);
+
+        this.renderusercomments = this.renderusercomments.bind(this)
+    }
+
+
+
     //function to get specific id 
  renderusercomments() {
-     return this.props.reviews.map( (review) => {
+    
+     return this.props.reviews.filter(review => review.userid == this.props.userindex )
+     .map( (review) => {
+
         return(
-        <div id="comments" key={review.userid}>
-            <p > userid: {review.userid} restaurant: {review.restaurantid} score: {review.score} </p>
+        <div key={review.id} id="comments">
+            <p > user: {review.userid} restaurant: {review.restaurantid} score: {review.score} </p>
             
             <p>  {review.text} </p>
         </div>
@@ -24,7 +35,7 @@ class Review extends Component{
     render() {
         return(
             <div >
-                {this.props.user}
+                {this.props.username}
             {this.renderusercomments()}    
 
             </div>
