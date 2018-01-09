@@ -14,10 +14,7 @@ class Review extends Component{
 
     //function to get specific id 
  renderusercomments() {
-    //
-     return this.props.reviews
-     .map( (review) => {
-
+     return this.props.reviews.map( (review) => {
         return(
         <div key={review.id} id="comments">
             <p > user: {review.userid} restaurant: {review.restaurantid} score: {review.score} </p>
@@ -35,8 +32,8 @@ class Review extends Component{
     render() {
         return(
             <div >
-                {this.props.username}
-                {this.renderusercomments()}    
+                {this.props.user}
+            {this.renderusercomments()}    
 
             </div>
         )
