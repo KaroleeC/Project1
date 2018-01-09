@@ -7,7 +7,7 @@ import Review from './DisplayReviews';
 const App = () => (
   <div>
       App div
-     <List/>
+     {/* Temp searchyelp value should be assign in action onclick search */}
     <User/>
     
   </div>
