@@ -7,22 +7,22 @@ export default function () {
             userid: 1,
             score: 5,
             restaurantid: 2,
-            text: "Bucky is a React developer and YouTuber"
+            text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
            
         },
         {
-            id: 1,
-            userid: 1,
+            id: 2,
+            userid: 2,
             score: 5,
             restaurantid: 2,
-            text: "Bucky is a React developer and YouTuber"
+            text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
         },
         {
-            id: 1,
+            id: 3,
             userid: 1,
             score: 5,
             restaurantid: 2,
-            text: "Bucky is a React developer and YouTuber"
+            text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
         }
     ]
 }

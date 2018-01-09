@@ -5,7 +5,8 @@ export default  function (){
         {  id: 1,
             name: 'Kari',
             location: 'Riverside, CA',
-            bio: 'blah, blah'
+            bio: 'blah, blah',
+            searchyelp: 'false'
 
        })
     
