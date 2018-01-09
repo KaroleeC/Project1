@@ -1,3 +1,11 @@
+bundle.js
 node_modules
 .DS_Store
+<<<<<<< HEAD
+<<<<<<< HEAD
 bundle.js
+=======
+bundle.js
+>>>>>>> master
+=======
+>>>>>>> commit before merge

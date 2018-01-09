@@ -1,9 +1,16 @@
-
+const  User = require('../../db/models/users');
 
 const UserController = {
     CreateUser: (req, res) => {
-        User.create()
+<<<<<<< HEAD
+        User.create(User.create({
+            username: 'kari',
+            password: 'password'
+        }))
+=======
+        User.create(User.create({}))
+>>>>>>> commit before merge
     }
 }
 
-
+module.exports = UserController;
