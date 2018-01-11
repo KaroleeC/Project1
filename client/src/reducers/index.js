@@ -8,7 +8,7 @@ import reviewsreducer from './reviewsreducer';
 const allreducers = combineReducers({
 
     restaurants: restaurantsreducer,
-    active_restaurant: active_restaurantreducer
+    active_restaurant: active_restaurantreducer,
     restaurants: restaurantsreducer,
     user: userreducer,
     reviews: reviewsreducer
