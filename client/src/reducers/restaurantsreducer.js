@@ -1,6 +1,6 @@
 //function containing object for restaurant state data
 
-export default  function (){
+export default function (){
  return [
    {
     id: 1,
