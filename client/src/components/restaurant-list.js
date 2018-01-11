@@ -8,12 +8,16 @@ class List extends Component{
 
 
     render() {
+        if (!this.props.restaurants) {
+            return (<div>search restaurants by name or cag and food</div>);
+        }
         return(
             <div>
             <p> The Restaurant List </p>
+            <h1>there are {this.props.restaurants.length} restaurants </h1>
             </div>
         )
-}
+    }
 
 }
 

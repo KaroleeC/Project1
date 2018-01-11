@@ -1,14 +1,14 @@
 //combine all reducers using combineReducers
 import { combineReducers } from 'redux';
-import restaurantsreducer from './restaurantsreducer';
+import restaurantReducer from './reducer-search-res';
 import userreducer from './userreducer';
 import reviewsreducer from './reviewsreducer';
 
 const allreducers = combineReducers({
 
-    restaurants: restaurantsreducer,
+    restaurants: restaurantReducer,
     user: userreducer,
-    reviews: reviewsreducer
+    reviews: reviewsreducer,
 })
 
 export default allreducers;
