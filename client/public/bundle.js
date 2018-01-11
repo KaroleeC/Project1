@@ -21397,6 +21397,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(8);
 
+var _redux = __webpack_require__(5);
+
 var _DisplayReviews = __webpack_require__(29);
 
 var _DisplayReviews2 = _interopRequireDefault(_DisplayReviews);
@@ -21405,6 +21407,10 @@ var _restaurantList = __webpack_require__(71);
 
 var _restaurantList2 = _interopRequireDefault(_restaurantList);
 
+var _toggleBio = __webpack_require__(81);
+
+var _changeBio = __webpack_require__(80);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21412,6 +21418,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+//need a location finder for user location
 
 var User = function (_Component) {
     _inherits(User, _Component);
@@ -21422,7 +21430,8 @@ var User = function (_Component) {
         var _this = _possibleConstructorReturn(this, (User.__proto__ || Object.getPrototypeOf(User)).call(this, props));
 
         _this.renderCondition = _this.renderCondition.bind(_this);
-
+        _this.BioDisplay = _this.BioDisplay.bind(_this);
+        _this.BioChangehandler = _this.BioChangehandler.bind(_this);
         return _this;
     }
 
@@ -21443,13 +21452,50 @@ var User = function (_Component) {
                     'div',
                     null,
                     'Comments',
-                    _react2.default.createElement(_DisplayReviews2.default, { userindex: '1', username: 'Kari' })
+                    _react2.default.createElement(_DisplayReviews2.default, { userindex: this.props.user.id, username: this.props.user.name })
                 );
             }
         }
     }, {
+        key: 'BioDisplay',
+        value: function BioDisplay() {
+            var _this2 = this;
+
+            console.log('edit bio', this.props.editBio);
+            //display either bio edit or bio depending on state 
+            if (this.props.editBio.value) {
+                //display edit box prepopulated with previous bio
+                //save button or tansition edit to save??
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    ' ',
+                    _react2.default.createElement('textarea', { defaultValue: this.props.user.bio, onChange: function onChange(event) {
+                            _this2.BioChangehandler(event);
+                        }, ref: 'bioText' }),
+                    ' '
+                );
+            } else {
+                return _react2.default.createElement(
+                    'p',
+                    null,
+                    ' ',
+                    this.props.user.bio,
+                    ' '
+                );
+            }
+        }
+    }, {
+        key: 'BioChangehandler',
+        value: function BioChangehandler() {
+            //saves changes to biotext area
+            this.props.changeBio(this.refs.bioText.value);
+        }
+    }, {
         key: 'render',
         value: function render() {
+            var _this3 = this;
+
             return _react2.default.createElement(
                 'div',
                 null,
@@ -21475,15 +21521,16 @@ var User = function (_Component) {
                 _react2.default.createElement(
                     'p',
                     null,
-                    'Your Bio'
+                    'Your Bio ',
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: function onClick() {
+                                _this3.props.toggleBio();
+                            } },
+                        'Edit'
+                    )
                 ),
-                _react2.default.createElement(
-                    'p',
-                    null,
-                    ' ',
-                    this.props.user.bio,
-                    ' '
-                ),
+                this.BioDisplay(),
                 this.renderCondition()
             );
         }
@@ -21495,11 +21542,22 @@ var User = function (_Component) {
 //mapStateToProps is the contain for this component
 //takes a piece of state and adds to props
 
+
 function mapStateToProps(state) {
-    return { user: state.user };
+    return { user: state.user,
+        editBio: state.editBio
+    };
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps)(User);
+//connect action creater to component/state
+function matchDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({
+        toggleBio: _toggleBio.toggleBio,
+        changeBio: _changeBio.changeBio
+    }, dispatch);
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(User);
 
 /***/ }),
 /* 73 */
@@ -21526,16 +21584,19 @@ var _reviewsreducer = __webpack_require__(76);
 
 var _reviewsreducer2 = _interopRequireDefault(_reviewsreducer);
 
+var _editbio = __webpack_require__(78);
+
+var _editbio2 = _interopRequireDefault(_editbio);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//combine all reducers using combineReducers
 var allreducers = (0, _redux.combineReducers)({
 
     restaurants: _restaurantsreducer2.default,
     user: _userreducer2.default,
-    reviews: _reviewsreducer2.default
-});
-
+    reviews: _reviewsreducer2.default,
+    editBio: _editbio2.default
+}); //combine all reducers using combineReducers
 exports.default = allreducers;
 
 /***/ }),
@@ -21565,13 +21626,28 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function () {
-    return { id: 1,
-        name: 'Kari',
-        location: 'Riverside, CA',
-        bio: 'blah, blah',
-        searchyelp: 'false'
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
+    var action = arguments[1];
 
-    };
+    switch (action.type) {
+        case "EDIT_BIO":
+            return Object.assign({}, state, { bio: action.payload });
+            break;
+        default:
+            return state;
+
+    }
+    return state;
+};
+
+//function containing object for restaurant state data
+var defaultState = {
+    id: 1,
+    name: 'Kari',
+    location: 'Riverside, CA',
+    bio: 'blah, blah',
+    searchyelp: 'false'
+
 };
 
 /***/ }),
@@ -21606,6 +21682,73 @@ exports.default = function () {
         restaurantid: 2,
         text: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
     }];
+};
+
+/***/ }),
+/* 77 */,
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { value: false };
+  var action = arguments[1];
+
+  switch (action.type) {
+    case "TOGGLE_BIO_EDIT":
+      console.log("YOOOOO");
+      return Object.assign({}, state, { value: !state.value });
+      break;
+    default:
+      return state;
+
+  }
+  return state;
+};
+
+/***/ }),
+/* 79 */,
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var changeBio = exports.changeBio = function changeBio(text) {
+  console.log('BIO CHange', text);
+
+  return {
+    type: "EDIT_BIO",
+    payload: text
+  };
+};
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var toggleBio = exports.toggleBio = function toggleBio(editBio) {
+  console.log('edit button clicked', editBio);
+
+  return {
+    type: "TOGGLE_BIO_EDIT",
+    payload: editBio
+  };
 };
 
 /***/ })
