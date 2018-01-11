@@ -14,7 +14,8 @@ firebase.initializeApp(config);
 let auth = firebase.auth();
 
 const base = {
-  googleLogin: () => {
+  googleLogin: (event) => {
+    event.preventDefault();
     let provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider)
       .then((response) => {
@@ -24,7 +25,8 @@ const base = {
         console.log('This is the error: ', err);
       });
   },
-  facebookLogin: () => {
+  facebookLogin: (event) => {
+    event.preventDefault();
     let provider = new firebase.auth.FacebookAuthProvider();
     auth.signInWithPopup(provider)
       .then((response) => {
@@ -34,7 +36,8 @@ const base = {
         console.log('This is the error: ', err);
       });
   },
-  githubLogin: () => {
+  githubLogin: (event) => {
+    event.preventDefault();
     let provider = new firebase.auth.GithubAuthProvider();
     auth.signInWithPopup(provider)
       .then((response) => {

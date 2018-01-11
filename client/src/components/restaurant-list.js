@@ -16,7 +16,7 @@ class List extends Component{
                 onClick={() => this.props.selectRestaurant(restaurant)}
                 >
                     <div className="ListEntryImage">
-                        <img class="resImg" src={restaurant.image} />
+                        <img className="resImg" src={restaurant.image} />
                     </div>
                     <div className="ListEntryInfo">
                         <div>{restaurant.name} </div>
