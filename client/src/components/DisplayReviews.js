@@ -15,7 +15,13 @@ class Review extends Component{
     //function to get specific id 
  renderusercomments() {
     //
-     return this.props.reviews
+    if(!this.props.active_restaurant ) {
+        return(
+            <p>no active restaurant detected</p>
+        )
+    }
+    else if(this.props.active_restaurant && this.props.active_restaurant.reviews.length){
+     return this.props.active_restaurant.reviews
      .map( (review) => {
 
         return(
@@ -29,13 +35,14 @@ class Review extends Component{
         
     } 
     )
+    }
  }
 
 
     render() {
         return(
-            <div >
-                {this.props.username}
+            <div class='reviews'>
+                {/* {this.props.username} */}
                 {this.renderusercomments()}    
 
             </div>
@@ -47,7 +54,7 @@ class Review extends Component{
 //mapStateToProps is the contain for this component
 //takes a piece of state and adds to props
 function mapStateToProps(state) {
-  return {reviews: state.reviews} 
+  return {active_restaurant: state.active_restaurant} 
 };
 
 export default connect(mapStateToProps)(Review);

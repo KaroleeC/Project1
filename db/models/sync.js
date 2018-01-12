@@ -4,8 +4,8 @@ const Reviews = require('./reviews');
 
 // Users.hasMany(Reviews);
 // Restaurants.hasMany(Reviews);
-Reviews.belongsTo(Users);
-Reviews.belongsTo(Restaurants);
+// Reviews.belongsTo(Users);
+// Reviews.belongsTo(Restaurants);
 
 Users.sync()
   .then(() => {

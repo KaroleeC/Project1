@@ -33,19 +33,19 @@ class User extends Component{
     renderCondition() {
         //search db for reviews associated with this user id
 
-        if( this.props.reviews.length <= 0 ){
-            //if no reviews
-            return ( <div> You have no food thoughts! <br/> Search for a restaurant to submit your thoughts... </div> )
+        // if( this.props.reviews.length <= 0 ){
+        //     //if no reviews
+        //     return ( <div> You have no food thoughts! <br/> Search for a restaurant to submit your thoughts... </div> )
 
-        } else {
-            //if they have reviews
-            return (
-                <div >
-                Comments
-                <Review username={this.props.user.name}/>
-                </div>
-            )
-        }
+        // } else {
+        //     //if they have reviews
+        //     return (
+        //         <div >
+        //         Comments
+        //         <Review username={this.props.user.name}/>
+        //         </div>
+        //     )
+        // }
 
     }
 
