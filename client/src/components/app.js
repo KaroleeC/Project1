@@ -15,6 +15,7 @@ const App = () => (
     
     <Search />
     <Restaurants />
+    <Restaurant />
   </div>
 
 )

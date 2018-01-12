@@ -10,9 +10,9 @@ class Restaurant extends Component {
   
   }
     return (<div>
-       <img src={this.props.active_restaurant.image}/>
+       <img src={this.props.active_restaurant.image_url}/>
        <h2 align="right">{this.props.active_restaurant.name}</h2>
-       <h4 align="right">{this.props.active_restaurant.address}</h4>
+       <h4 align="right">{this.props.active_restaurant.location.display_address.join(',  ')}</h4>
        <h4 align="right">{this.props.active_restaurant.phone}</h4>
        <button align="right">Add Review</button>
      </div>)
