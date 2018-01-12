@@ -2047,12 +2047,8 @@ var Review = function (_Component) {
     _createClass(Review, [{
         key: 'renderusercomments',
         value: function renderusercomments() {
-            var _this2 = this;
-
             //
-            return this.props.reviews.filter(function (review) {
-                return review.userid == _this2.props.userindex;
-            }).map(function (review) {
+            return this.props.reviews.map(function (review) {
 
                 return _react2.default.createElement(
                     'div',
@@ -21447,7 +21443,7 @@ var User = function (_Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
-            _axios2.default.get('/api/reviews').then(function (res) {
+            _axios2.default.get('/api/reviews?userid=' + this.props.user.id).then(function (res) {
                 console.log('User reviews', res.data);
                 //set state with data
                 _this2.props.initReviews(res.data);
@@ -21476,7 +21472,7 @@ var User = function (_Component) {
                     'div',
                     null,
                     'Comments',
-                    _react2.default.createElement(_DisplayReviews2.default, { userindex: this.props.user.id, username: this.props.user.name })
+                    _react2.default.createElement(_DisplayReviews2.default, { username: this.props.user.name })
                 );
             }
         }
@@ -21485,7 +21481,6 @@ var User = function (_Component) {
         value: function BioDisplay() {
             var _this3 = this;
 
-            console.log('edit bio', this.props.editBio);
             //display either bio edit or bio depending on state 
             if (this.props.editBio.value) {
                 //display edit box prepopulated with previous bio
@@ -21775,7 +21770,6 @@ exports.default = function () {
 
   switch (action.type) {
     case "TOGGLE_BIO_EDIT":
-      console.log("YOOOOO");
       return Object.assign({}, state, { value: !state.value });
       break;
     default:
