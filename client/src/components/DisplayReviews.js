@@ -14,7 +14,7 @@ class Review extends Component{
 
     //function to get specific id 
  renderusercomments() {
-    
+    //
      return this.props.reviews.filter(review => review.userid == this.props.userindex )
      .map( (review) => {
 
@@ -36,7 +36,7 @@ class Review extends Component{
         return(
             <div >
                 {this.props.username}
-            {this.renderusercomments()}    
+                {this.renderusercomments()}    
 
             </div>
         )
