@@ -10,7 +10,7 @@ router.route('/user')
 
 
 router.route('/search')
-    .get(searchController.search)
+    // .get(searchController.search)
     .post(searchController.search)
 
 

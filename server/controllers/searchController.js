@@ -3,8 +3,8 @@ const keys = require('../../config.js');
 
 const searchController = {
   search: (req, res) =>{
-    console.log('here is the req.body', req.body);
-    const arr = ['term=buggers', 'location=Los+angeles'];
+    const arr = req.body.query;
+
     const url = "https://api.yelp.com/v3/businesses/search?" + arr.join('&') ;
     const options = {
       method: 'GET',

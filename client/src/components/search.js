@@ -9,8 +9,10 @@ import axios from 'axios'
 class Search extends React.Component { 
     search () {
        
-       let inputValue =  document.getElementById('input').value;
-       axios.post('/api/search', {term: inputValue})
+       let inputValue =  document.getElementById('input').value.split(',');
+       inputValue[0] = 'term=' + inputValue[0];
+       inputValue[1] = 'location=' + inputValue[1];
+       axios.post('/api/search', {query: inputValue})
          .then((response)=>{
  
              this.props.searchRestaurant(response.data);
