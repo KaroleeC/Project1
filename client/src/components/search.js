@@ -34,7 +34,8 @@ class Search extends React.Component {
     }
 }
 function mapStateToProps(state) {
-    return {restaurants: state.res} 
+    // return {restaurants: state.haha} 
+    return {}
 };
 
 function matchDispatchToProps (dispatch){
