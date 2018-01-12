@@ -13,6 +13,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
+          plugins: ['transform-decorators-legacy',"transform-object-rest-spread"],
           presets: ['env', 'react']
         }
       }
