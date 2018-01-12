@@ -6,13 +6,15 @@ import { Provider } from 'react-redux'; //makes store available to all container
 import App from './components/app';
 import Login from './components/login'
 //import all reducers from reducers index
-import allreducers from './reducers/index';
 
+<<<<<<< HEAD
 
-
+||||||| merged common ancestors
+=======
+import store from "./store";
+>>>>>>> master
 //create redux storage and pass reducers in createStore
 //
-const store = createStore(allreducers);
 
 class Root extends React.Component {
   render() {

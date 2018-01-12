@@ -30,12 +30,15 @@ class List extends Component{
     }
 
     render() {
+        if (!this.props.restaurants) {
+            return (<div>search restaurants by name or cag and food</div>);
+        }
         return(
             <ul>
                 {this.renderListItem()}
             </ul>
         )
-}
+    }
 
 }
 

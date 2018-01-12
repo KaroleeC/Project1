@@ -8,7 +8,7 @@ class Review extends Component{
  renderusercomments() {
      return this.props.reviews.map( (review) => {
         return(
-        <div id="comments">
+        <div id="comments" key={review.userid}>
             <p > userid: {review.userid} restaurant: {review.restaurantid} score: {review.score} </p>
             
             <p>  {review.text} </p>

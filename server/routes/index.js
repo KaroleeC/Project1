@@ -10,8 +10,8 @@ router.route('/user')
 
 
 router.route('/search')
-    .get(searchController.search)
-    .post()
+    // .get(searchController.search)
+    .post(searchController.search)
 
 
 router.route('/restaurant') 
