@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const searchController = require('../controllers/searchController')
-const restaurantController = require('../controllers/restaurantController')
-// require path to user controller
+const searchController = require('../controllers/searchController');
+const restaurantController = require('../controllers/restaurantController');
+const UserController = require('../controllers/UserController');
+const reviewsController = require('../controllers/reviewsController');
+
 
 router.route('/user') 
     .get()
@@ -20,8 +22,9 @@ router.route('/restaurant')
 
 
 router.route('/reviews') 
-    .get()
-    .post()
+    .get(reviewsController.GetUserReview)
+    .post(reviewsController.Createreview)
+    
 
 
 

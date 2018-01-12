@@ -1,11 +1,9 @@
 //function containing object for restaurant state data
 const defaultState = {  
     id: 1,
-    name: 'Kari',
-    location: 'Riverside, CA',
+    name: 'Anonymous',
+    location: 'Nowhere, CA',
     bio: 'blah, blah',
-    searchyelp: 'false',
-
 }
 
 
