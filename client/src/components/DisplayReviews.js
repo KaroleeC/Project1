@@ -25,8 +25,9 @@ class Review extends Component{
      .map( (review) => {
 
         return(
-        <div key={review.id} id="comments">
-            <p > user: {review.userid} restaurant: {review.restaurantid} score: {review.score} </p>
+        <div key={review.restaurantid} id="comments">
+            <p > user: {review.userid}, score: {review.rating} </p>
+            <p>comment: {review.comments}</p>
             
             <p>  {review.text} </p>
         </div>
@@ -41,7 +42,7 @@ class Review extends Component{
 
     render() {
         return(
-            <div class='reviews'>
+            <div className='reviews'>
                 {/* {this.props.username} */}
                 {this.renderusercomments()}    
 
