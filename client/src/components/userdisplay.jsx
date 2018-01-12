@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Review from './DisplayReviews';
 import List from './restaurant-list';
 import { toggleBio } from '../testactions/toggleBio';
 import { changeBio } from '../testactions/changeBio';
+import { initReviews } from '../testactions/initReviews';
 //need a location finder for user location
 
 class User extends Component{
@@ -16,12 +18,27 @@ class User extends Component{
         this.BioChangehandler = this.BioChangehandler.bind(this);
     }
     
+    componentDidMount(){
+
+        axios.get('/api/reviews').then( res => {
+            console.log('User reviews', res.data)
+            //set state with data
+            this.props.initReviews(res.data);
+            console.log('Reviews?', this.props.reviews)
+        })
+        .catch(err => { console.log('axois get request err (userdisplay.js', err); } );
+    }
+
+
     renderCondition() {
-        console.log(this.props.user.searchyelp);
-        if( this.props.user.searchyelp === "true"){
-            return ( <div> <List/> </div> )
+        //search db for reviews associated with this user id
+
+        if( this.props.reviews.length <= 0 ){
+            //if no reviews
+            return ( <div> You have no food thoughts! <br/> Search for a restaurant to submit your thoughts... </div> )
 
         } else {
+            //if they have reviews
             return (
                 <div >
                 Comments
@@ -75,7 +92,8 @@ class User extends Component{
 //takes a piece of state and adds to props
 function mapStateToProps(state) {
   return { user: state.user,
-           editBio: state.editBio 
+           editBio: state.editBio,
+           reviews: state.reviews 
 } 
 };
 
@@ -83,7 +101,8 @@ function mapStateToProps(state) {
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
     toggleBio: toggleBio,
-    changeBio: changeBio
+    changeBio: changeBio,
+    initReviews: initReviews
   }, dispatch)
 }
 
