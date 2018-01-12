@@ -17,8 +17,8 @@ router.route('/search')
 
 
 router.route('/restaurant') 
-    .get(restaurantController.CreateRestaurant)    
-    .post()
+    .get(reviewsController.getRestaurantReviews)    
+    // .post(restaurantController.getRestaurantReviews)
 
 
 router.route('/reviews') 

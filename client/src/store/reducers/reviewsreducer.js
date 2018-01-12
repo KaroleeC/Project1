@@ -24,9 +24,9 @@ const dumreviews =  [
     }
 ];
 
-export default function (state=dumreviews, action) {
+export default function (state=null, action) {
     switch(action.type) {
-        case "INIT_REVIEWS":
+        case "RESTAURANT_SELECTED":
             console.log('payload', action.payload);
           return action.payload
           break;
