@@ -1,16 +1,4 @@
 node_modules
 .DS_Store
-<<<<<<< HEAD
 bundle.js
-||||||| merged common ancestors
-<<<<<<< HEAD
-<<<<<<< HEAD
-bundle.js
-=======
-bundle.js
->>>>>>> master
-=======
->>>>>>> commit before merge
-=======
-bundle.js
->>>>>>> master
+config.js
