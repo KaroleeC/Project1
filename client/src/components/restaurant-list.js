@@ -16,11 +16,11 @@ class List extends Component{
                 onClick={() => this.props.selectRestaurant(restaurant)}
                 >
                     <div className="ListEntryImage">
-                        <img className="resImg" src={restaurant.image} />
+                        {/* <img className="resImg" src={restaurant.image_url} /> */}
                     </div>
                     <div className="ListEntryInfo">
                         <div>{restaurant.name} </div>
-                        <div>{restaurant.address}</div>
+                        {/* <div>{restaurant.location.display_address.join(', ')}</div> */}
                     </div>
                 
                 
