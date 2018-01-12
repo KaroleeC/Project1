@@ -7,12 +7,7 @@ import App from './components/app';
 import Login from './components/login'
 //import all reducers from reducers index
 
-<<<<<<< HEAD
-
-||||||| merged common ancestors
-=======
 import store from "./store";
->>>>>>> master
 //create redux storage and pass reducers in createStore
 //
 
