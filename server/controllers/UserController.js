@@ -2,14 +2,9 @@ const  User = require('../../db/models/users');
 
 const UserController = {
     CreateUser: (req, res) => {
-<<<<<<< HEAD
-        User.create(User.create({
-            username: 'kari',
-            password: 'password'
-        }))
-=======
-        User.create(User.create({}))
->>>>>>> commit before merge
+        User.create({username: req.username,
+        password: req.password 
+        });
     }
 }
 
