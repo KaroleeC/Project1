@@ -15,7 +15,7 @@ class Review extends Component{
     //function to get specific id 
  renderusercomments() {
     //
-     return this.props.reviews.filter(review => review.userid == this.props.userindex )
+     return this.props.reviews
      .map( (review) => {
 
         return(

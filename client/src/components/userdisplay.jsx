@@ -20,7 +20,7 @@ class User extends Component{
     
     componentDidMount(){
 
-        axios.get('/api/reviews').then( res => {
+        axios.get(`/api/reviews?userid=${this.props.user.id}`).then( res => {
             console.log('User reviews', res.data)
             //set state with data
             this.props.initReviews(res.data);
@@ -42,7 +42,7 @@ class User extends Component{
             return (
                 <div >
                 Comments
-                <Review userindex={this.props.user.id} username={this.props.user.name}/>
+                <Review username={this.props.user.name}/>
                 </div>
             )
         }
@@ -50,7 +50,6 @@ class User extends Component{
     }
 
     BioDisplay() {
-        console.log('edit bio', this.props.editBio)
         //display either bio edit or bio depending on state 
         if(this.props.editBio.value) {
             //display edit box prepopulated with previous bio
