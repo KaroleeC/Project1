@@ -1,12 +1,6 @@
 import firebase from 'firebase';
 
 const config = {
-  apiKey: "AIzaSyAOURzDm-6wZMBjITw8anb38zNddT9UZ0E",
-  authDomain: "foodthoughts-28044.firebaseapp.com",
-  databaseURL: "https://foodthoughts-28044.firebaseio.com",
-  projectId: "foodthoughts-28044",
-  storageBucket: "foodthoughts-28044.appspot.com",
-  messagingSenderId: "1022593351688"
 };
 
 firebase.initializeApp(config);
