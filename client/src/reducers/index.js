@@ -12,7 +12,7 @@ const allreducers = combineReducers({
     restaurants: restaurantsreducer,
     active_restaurant: active_restaurantreducer,
     user: userreducer,
-    reviews: reviewsreducer
+    reviews: reviewsreducer,
     editBio: editBio
 })
 

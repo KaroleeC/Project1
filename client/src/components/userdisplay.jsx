@@ -6,6 +6,7 @@ import Review from './DisplayReviews';
 import List from './restaurant-list';
 import { toggleBio } from '../testactions/toggleBio';
 import { changeBio } from '../testactions/changeBio';
+import { changeLocal } from '../testactions/changeLocal';
 import { initReviews } from '../testactions/initReviews';
 //need a location finder for user location
 
@@ -16,6 +17,7 @@ class User extends Component{
         this.renderCondition = this.renderCondition.bind(this);
         this.BioDisplay = this.BioDisplay.bind(this);
         this.BioChangehandler = this.BioChangehandler.bind(this);
+        this.LocationChangehandler = this.LocationChangehandler.bind(this);
     }
     
     componentDidMount(){
@@ -53,13 +55,19 @@ class User extends Component{
         //display either bio edit or bio depending on state 
         if(this.props.editBio.value) {
             //display edit box prepopulated with previous bio
-            //save button or tansition edit to save??
             return(
-                <div> <textarea defaultValue={this.props.user.bio} onChange={ (event) => {this.BioChangehandler(event)} } ref="bioText" ></textarea> </div>
+                <div> 
+                    <p>You are located at: <input type="text" ref="localText" defaultValue={this.props.user.location} onChange={ () => {this.LocationChangehandler()} } /> </p>
+                    <textarea defaultValue={this.props.user.bio} onChange={ () => {this.BioChangehandler()} } ref="bioText" ></textarea> 
+                    </div>
             ) 
         } 
         else{
-            return <p> {this.props.user.bio} </p>
+            return (
+            <div>
+                <p>You are located at: {this.props.user.location} </p>
+                <p> {this.props.user.bio} </p>
+            </div> )
            
         }
 
@@ -70,6 +78,10 @@ class User extends Component{
         this.props.changeBio(this.refs.bioText.value)
     }
 
+    LocationChangehandler() {
+        //saves changes to location text input
+        this.props.changeLocal(this.refs.localText.value)
+    }
 
     render() {
         
@@ -77,8 +89,7 @@ class User extends Component{
             <div>
             <p> User Page </p>
             <p>Welcome, {this.props.user.name} </p>
-            <p>You are located at: {this.props.user.location} </p>
-            <p>Your Bio <button onClick={ () => { this.props.toggleBio() }} >Edit</button></p>
+            <p>Your Information <button onClick={ () => { this.props.toggleBio()}} >Edit</button></p>
             { this.BioDisplay() }
             {this.renderCondition()}
             </div>
@@ -101,6 +112,7 @@ function matchDispatchToProps(dispatch) {
   return bindActionCreators({
     toggleBio: toggleBio,
     changeBio: changeBio,
+    changeLocal: changeLocal,
     initReviews: initReviews
   }, dispatch)
 }
