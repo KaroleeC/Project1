@@ -16,7 +16,7 @@ const reviewsController = {
       .catch(err => { console.log('***ERROR***');});
     },
     GetUserReview: (req, res) => {
-      Reviews.findAll({})
+      Reviews.findAll({ where:{ userid: req.query.userid } })
       .then(data => {
         res.status(201).send(data)})
       .catch(err => { console.log('***ERROR***');});
