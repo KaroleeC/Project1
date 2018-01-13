@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Review from './DisplayReviews';
 import List from './restaurant-list';
-import { toggleBio } from '../testactions/toggleBio';
-import { changeBio } from '../testactions/changeBio';
-import { changeLocal } from '../testactions/changeLocal';
-import { initReviews } from '../testactions/initReviews';
+import { toggleBio } from '../actions/toggleBio';
+import { changeBio } from '../actions/changeBio';
+import { changeLocal } from '../actions/changeLocal';
+import { initReviews } from '../actions/initReviews';
 //need a location finder for user location
 
 class User extends Component{
