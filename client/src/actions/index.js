@@ -17,3 +17,11 @@ export const searchRestaurant = (data) => {
         payload: data.businesses
     }
 }
+
+export const activeUser = (user) => {
+  console.log('function user inside of action/index');
+  return {
+    type: 'ACTIVE_USER',
+    payload: user
+  }
+}
