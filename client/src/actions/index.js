@@ -25,3 +25,10 @@ export const activeUser = (user) => {
     payload: user
   }
 }
+
+export const selectOption= (option) => {
+  return {
+    type: 'OPTION_SELECTOR',
+    payload: option
+  }
+};

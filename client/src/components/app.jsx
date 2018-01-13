@@ -6,11 +6,13 @@ import Login from './login'
 import Search from './search'
 import Restaurants from './restaurant-list'
 import Restaurant from './restaurant'
+import ReviewForm from './ReviewForm'
 import firebase from '../firebase'
 import { activeUser } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import Option from './option';
 
 
 class App extends React.Component {
@@ -38,11 +40,9 @@ class App extends React.Component {
     return (
       <div>
         <Login />
-        <User/>
+        
         <Search />
-        <Restaurants />
-        <Restaurant />
-        <Review />
+        <Option />
        </div>
     )
   }
@@ -57,22 +57,3 @@ function matchDispatchToProps (dispatch){
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(App)
-
-
-
-
-// const App = () => (
-//   <div>
-//       App div
-//       <Login/>
-//     <User/>
-    
-//     <Search />
-//     <Restaurants />
-//     <Restaurant />
-//     <Review />
-//   </div>
-
-// )
-
-// export default App;
