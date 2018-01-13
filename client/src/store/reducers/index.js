@@ -5,6 +5,7 @@ import restaurantReducer from './reducer-search-res';
 import userreducer from './userreducer';
 import reviewsreducer from './reviewsreducer';
 import editBio from './editbio';
+import active_user from './active_userreducer'
 
 const allreducers = combineReducers({
 
@@ -13,7 +14,8 @@ const allreducers = combineReducers({
     restaurants: restaurantReducer,
     user: userreducer,
     reviews: reviewsreducer,
-    editBio: editBio
+    editBio: editBio,
+    active_user: active_user
 })
 
 export default allreducers;
