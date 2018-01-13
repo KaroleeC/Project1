@@ -72,12 +72,21 @@ class User extends Component{
 
 
     render() {
-        
+        if(!this.props.active_user) {
+            return (
+                <div>
+                    <h2>please log in to see the user page!!</h2>
+                </div>
+            )
+        }
         return(
             <div>
             <p> User Page </p>
-            <p>Welcome, {this.props.user.name} </p>
-            <p>You are located at: {this.props.user.location} </p>
+            <div>
+            <img src={this.props.active_user.photoURL}/>
+            <p>Welcome, {this.props.active_user.displayName} </p>
+            </div>
+            {/* <p>You are located at: {this.props.user.location} </p>  */}
             <p>Your Bio <button onClick={ () => { this.props.toggleBio() }} >Edit</button></p>
             { this.BioDisplay() }
             {this.renderCondition()}
@@ -92,7 +101,8 @@ class User extends Component{
 function mapStateToProps(state) {
   return { user: state.user,
            editBio: state.editBio,
-           reviews: state.reviews 
+           reviews: state.reviews,
+           active_user: state.active_user
 } 
 };
 
