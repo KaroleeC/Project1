@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { selectRestaurant } from '../actions/index'; 
 import axios from 'axios'
+import { selectOption } from '../actions/index';
 
 
 class List extends Component{
@@ -17,7 +18,7 @@ class List extends Component{
           this.props.selectRestaurant(restaurant, response.data)
         })
         .catch((err) => {
-          console.log(err)
+          console.log('error from list axios', err)
         })
     }
     renderListItem() {
@@ -26,7 +27,11 @@ class List extends Component{
             return (
                 <div className="ListEntry"
                 key={restaurant.id}
-                onClick={() => this.handleRestaurantClick(restaurant)}
+                onClick={(e) => {
+                    e.preventDefault()
+                    this.handleRestaurantClick(restaurant)
+                    this.props.selectOption('restaurant')
+                }}
                 >
                     <div className="ListEntryImage">
                         {/* <img className="resImg" src={restaurant.image_url} /> */}
@@ -43,16 +48,17 @@ class List extends Component{
     }
 
     render() {
-        if (!this.props.restaurants) {
-            return (<div>search restaurants by name or cag and food</div>);
-        }
-        return(
+       return ( !this.props.restaurants
+        ?
+             null
+        
+       :
             <ul>
                 {this.renderListItem()}
-            </ul>
-        )
+            </ul>)
+        
+    
     }
-
 }
 
 //mapStateToProps is the contain for this component
@@ -61,8 +67,10 @@ function mapStateToProps(state) {
   return {restaurants: state.restaurants} 
 };
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({selectRestaurant: selectRestaurant}, dispatch)
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({selectRestaurant: selectRestaurant,
+                             selectOption: selectOption
+                    }, dispatch)
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default connect(mapStateToProps, matchDispatchToProps)(List);
