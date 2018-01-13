@@ -4,6 +4,8 @@ import axios from 'axios';
 class ReviewForm extends React.Component {
   constructor() {
     super();
+
+    // Hold radio values
     this.form = {
       food: null,
       service: null,
@@ -16,27 +18,29 @@ class ReviewForm extends React.Component {
   }
 
   onSelect(e) {
+    // Set radio values inside form object
     this.form[e.target.name] = parseInt(e.target.value);
-    console.log(this.form);
   }
 
   onSubmitHandler (event) {
     event.preventDefault();
 
     const average = (this.form.food + this.form.service + this.form.atmosphere + this.form.cleanliness) / 4;
+    console.log(average);
 
-    const payload = {
-      // user: //some user,
-      // restaurant: this.props.active_restaurant.name,
-      rating: average
-    }
-    axios.post()
-      .then(() => {
+    // UNCOMMENT TO SEND DATA
+    // const payload = {
+    //   restaurant: this.props.active_restaurant.id,
+    //   rating: average,
+    //   // user: // this.props.active_user.id
+    // }
+    // axios.post('/reviews', payload)
+    //   .then(() => {
 
-      })
-      .catch((err) => {
-        console.log('Failed to create review: ', err);
-      });
+    //   })
+    //   .catch((err) => {
+    //     console.log('Failed to create review: ', err);
+    //   });
   }
 
   render() {
