@@ -23,12 +23,11 @@ class User extends Component{
     componentDidMount(){
 
         axios.get(`/api/reviews?userid=${this.props.user.id}`).then( res => {
-            console.log('User reviews', res.data)
             //set state with data
             this.props.initReviews(res.data);
-            console.log('Reviews?', this.props.reviews)
         })
-        .catch(err => { console.log('axois get request err (userdisplay.js', err); } );
+        .catch(err => { 
+            console.log('axois get request err (userdisplay.js)', err); } );
     }
 
 
