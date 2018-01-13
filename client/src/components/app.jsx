@@ -12,6 +12,7 @@ import { activeUser } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import Option from './option';
 
 
 class App extends React.Component {
@@ -39,12 +40,9 @@ class App extends React.Component {
     return (
       <div>
         <Login />
-        <User/>
+        
         <Search />
-        <Restaurants />
-        <Restaurant />
-        <Review />
-        <ReviewForm />
+        <Option />
        </div>
     )
   }
