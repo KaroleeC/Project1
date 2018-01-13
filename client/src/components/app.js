@@ -22,10 +22,11 @@ class App extends React.Component {
           //set state with data
           this.props.initReviews(res.data);
           console.log('Reviews?', this.props.reviews)
-      })
-      .catch(err => { console.log('axois get request err (userdisplay.js', err); } );
+        })
+        .catch(err => { console.log('axois get request err (userdisplay.js', err); } );
+        console.log('inside of app componentwillmount here is the user and err', user, err)
         this.props.activeUser(user);
-      } else {
+      } else {xs
         return (
           <div>
             <Login />
