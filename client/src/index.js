@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { BrowserRouter, Route, BrowserHistory, Link } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'; //makes store available to all containers
-import App from './components/app';
+import App from './components/app.jsx';
 import Login from './components/login'
 //import all reducers from reducers index
 

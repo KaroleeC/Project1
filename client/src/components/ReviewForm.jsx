@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-
+import { selectOption } from '../actions/index';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 class ReviewForm extends React.Component {
   constructor() {
     super();
@@ -27,7 +29,7 @@ class ReviewForm extends React.Component {
 
     const average = (this.form.food + this.form.service + this.form.atmosphere + this.form.cleanliness) / 4;
     console.log(average);
-    console.log(this.props.active_user)
+    console.log(this.props.active_user.uid)
 
     // UNCOMMENT TO SEND DATA
     // const payload = {
@@ -105,7 +107,11 @@ class ReviewForm extends React.Component {
             <label htmlFor="five">5</label>
           </div>
 
-          <button onClick={this.onSubmitHandler} >Submit</button>
+          <button onClick={(e) => {
+            this.onSubmitHandler
+            this.props.selectOption('restaurant')
+          }}
+             >Submit</button>
         </form>
       </div>
     )
@@ -119,4 +125,10 @@ function mapStateToProps(state) {
   }
 }
 
-export default ReviewForm;
+const matchDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    selectOption: selectOption
+  }, dispatch)
+}
+
+export default connect(mapStateToProps)(ReviewForm);
