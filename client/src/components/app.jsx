@@ -36,20 +36,28 @@ class App extends React.Component {
       }
     })
   }
+  
   render() {
-    return (
-      <div>
-        <Login />
-        
-        <Search />
-        <Option />
-       </div>
-    )
+    if (this.props.active_user) {
+      return (
+        <div>
+          <Search />
+          <Option />
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <Login />
+        </div>
+      )
+    }
   }
 }
 function mapStateToProps(state) {
-  // return {restaurants: state.haha} 
-  return {}
+  return {
+    active_user: state.active_user,
+  }
 };
 
 function matchDispatchToProps (dispatch){
