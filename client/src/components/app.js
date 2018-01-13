@@ -6,16 +6,12 @@ import Login from './login'
 import Search from './search'
 import Restaurants from './restaurant-list'
 import Restaurant from './restaurant'
-<<<<<<< HEAD
 import ReviewForm from './ReviewForm'
-||||||| merged common ancestors
-=======
 import firebase from '../firebase'
 import { activeUser } from '../actions'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import axios from 'axios'
->>>>>>> master
 
 
 class App extends React.Component {
@@ -62,37 +58,3 @@ function matchDispatchToProps (dispatch){
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(App)
-
-
-
-
-// const App = () => (
-//   <div>
-//       App div
-//       <Login/>
-//     <User/>
-    
-<<<<<<< HEAD
-    <Search />
-    <Restaurants />
-    <Restaurant />
-    <ReviewForm />
-    <Review />
-  </div>
-||||||| merged common ancestors
-    <Search />
-    <Restaurants />
-    <Restaurant />
-    <Review />
-  </div>
-=======
-//     <Search />
-//     <Restaurants />
-//     <Restaurant />
-//     <Review />
-//   </div>
->>>>>>> master
-
-// )
-
-// export default App;
