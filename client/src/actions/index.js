@@ -1,9 +1,12 @@
+const axios = require('axios')
 
-export const selectRestaurant = (restaurant) => {
-  console.log('hello', restaurant);
+
+
+export const selectRestaurant = (restaurant, data) => {
+
   return {
     type: "RESTAURANT_SELECTED",
-    payload: restaurant
+    payload: {...restaurant, reviews: data},
   }
 };
 

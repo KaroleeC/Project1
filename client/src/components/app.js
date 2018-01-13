@@ -7,8 +7,13 @@ import Search from './search'
 import Restaurants from './restaurant-list'
 //add list to App div
 import Restaurant from './restaurant'
+<<<<<<< HEAD
 import ReviewForm from './ReviewForm'
 
+||||||| merged common ancestors
+=======
+
+>>>>>>> master
 const App = () => (
   <div>
       App div
@@ -18,7 +23,12 @@ const App = () => (
     <Search />
     <Restaurants />
     <Restaurant />
+<<<<<<< HEAD
     <ReviewForm />
+||||||| merged common ancestors
+=======
+    <Review />
+>>>>>>> master
   </div>
 
 )
