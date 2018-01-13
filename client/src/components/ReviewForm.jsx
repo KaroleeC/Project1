@@ -24,12 +24,12 @@ class ReviewForm extends React.Component {
     this.form[e.target.name] = parseInt(e.target.value);
   }
 
-  onSubmitHandler (event) {
-    event.preventDefault();
-
+  onSubmitHandler (e) {
+   
+    e.preventDefault()
     const average = (this.form.food + this.form.service + this.form.atmosphere + this.form.cleanliness) / 4;
     console.log(average);
-    console.log(this.props.active_user.uid)
+    console.log('muthafuckin uid', this.props.active_user.uid)
 
     // UNCOMMENT TO SEND DATA
     // const payload = {
@@ -108,8 +108,9 @@ class ReviewForm extends React.Component {
           </div>
 
           <button onClick={(e) => {
+            e.preventDefault()
             this.onSubmitHandler
-            this.props.selectOption('restaurant')
+            this.props.selectOption('restaurant');
           }}
              >Submit</button>
         </form>
@@ -131,4 +132,4 @@ const matchDispatchToProps = (dispatch) => {
   }, dispatch)
 }
 
-export default connect(mapStateToProps)(ReviewForm);
+export default connect(mapStateToProps, matchDispatchToProps)(ReviewForm);

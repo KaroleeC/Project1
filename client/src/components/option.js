@@ -16,7 +16,7 @@ class Option extends Component {
   }
 
   render() {
-   
+   console.log('so we know which one it is', this.props.option)
     if (this.props.option === 'user') {
      return (
        <User />
