@@ -29,7 +29,7 @@ class Search extends React.Component {
     if(this.props.active_user) {
       return (
         <nav className="navbar navbar-light bg-light justify-content-between" >
-          <a className="navbar-brand" href="#">FoodThoughts</a>
+          <a className="navbar-brand" href="#" onClick={() => this.props.selectOption('user')}>FoodThoughts</a>
           <form className="form-inline" >
             <input className="form-control mr-sm-2"  type='text' id='input' placeholder="Search" />
             <button className="btn btn-outline-primary my-2 my-sm-0" onClick={(e) => {
