@@ -23,19 +23,27 @@ class Search extends React.Component {
 
     }
     render() {
-       return (
-           <div>
-               search:
-               <input type='text' id='input' />
-               <button onClick={this.search.bind(this)}>submit</button>
+      if(this.props.active_user) {
+        return (
+            <div>
+                search:
+                <input type='text' id='input' />
+                <button onClick={this.search.bind(this)}>submit</button>
 
-           </div>
-       )
+            </div>
+        )
+      }else{
+          return(
+          <div>
+              <h1>user is not logged in yet please login first!!!!!!!!!!</h1>
+          </div>
+          )
+      }
     }
 }
 function mapStateToProps(state) {
     // return {restaurants: state.haha} 
-    return {}
+    return { active_user: state.active_user }
 };
 
 function matchDispatchToProps (dispatch){
