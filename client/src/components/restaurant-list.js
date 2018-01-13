@@ -23,30 +23,33 @@ class List extends Component{
         })
     }
     renderListItem() {
-        console.log(this.props.restuarants)
-        
-        return this.props.restaurants.map((restaurant) => {
-            return (
-                <div className=""
-                key={restaurant.id}
-                onClick={(e) => {
-                    e.preventDefault()
-                    this.handleRestaurantClick(restaurant)
-                    this.props.selectOption('restaurant')
-                }}
-                >
-                    <div className="ListEntryImage">
-                        { <img className="img-thumbnail" width="30%" height="30%" src={restaurant.image_url} /> }
-                    </div>
-                    <div className="ListEntryInfo">
-                        <div style={{fontFamily: 'Raleway'}}>{restaurant.name} </div>
-                        {/* <div>{restaurant.location.display_address.join(', ')}</div> */}
-                    </div>
-                
-                
-                </div>
-            )
+      console.log(this.props.restuarants)
+      
+      return (
+        <div className="card-columns">
+        {this.props.restaurants.map((restaurant) => {
+          return (
+            <div className="card"
+            key={restaurant.id}
+            onClick={(e) => {
+              e.preventDefault()
+              this.handleRestaurantClick(restaurant)
+              this.props.selectOption('restaurant')
+            }}
+            >
+              <div className="ListEntryImage">
+                { <img className="img-thumbnail card-img-top" width="30%" height="30%" src={restaurant.image_url} /> }
+              </div>
+              <div className="card-body">
+                <div className="card-title" style={{fontFamily: 'Raleway'}}>{restaurant.name} </div>
+                {/* <div>{restaurant.location.display_address.join(', ')}</div> */}
+              </div>
+            </div>
+          )
         })
+      }
+      </div>
+    )
     }
 
     render() {
