@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Review from './DisplayReviews';
 import List from './restaurant-list';
-import { toggleBio } from '../testactions/toggleBio';
-import { changeBio } from '../testactions/changeBio';
-import { initReviews } from '../testactions/initReviews';
+import { toggleBio } from '../actions/toggleBio';
+import { changeBio } from '../actions/changeBio';
+import { changeLocal } from '../actions/changeLocal';
+import { initReviews } from '../actions/initReviews';
 //need a location finder for user location
 
 class User extends Component{
@@ -16,17 +17,17 @@ class User extends Component{
         this.renderCondition = this.renderCondition.bind(this);
         this.BioDisplay = this.BioDisplay.bind(this);
         this.BioChangehandler = this.BioChangehandler.bind(this);
+        this.LocationChangehandler = this.LocationChangehandler.bind(this);
     }
     
     componentDidMount(){
 
         axios.get(`/api/reviews?userid=${this.props.user.id}`).then( res => {
-            console.log('User reviews', res.data)
             //set state with data
             this.props.initReviews(res.data);
-            console.log('Reviews?', this.props.reviews)
         })
-        .catch(err => { console.log('axois get request err (userdisplay.js', err); } );
+        .catch(err => { 
+            console.log('axois get request err (userdisplay.js)', err); } );
     }
 
 
@@ -53,13 +54,19 @@ class User extends Component{
         //display either bio edit or bio depending on state 
         if(this.props.editBio.value) {
             //display edit box prepopulated with previous bio
-            //save button or tansition edit to save??
             return(
-                <div> <textarea defaultValue={this.props.user.bio} onChange={ (event) => {this.BioChangehandler(event)} } ref="bioText" ></textarea> </div>
+                <div> 
+                    <p>You are located at: <input type="text" ref="localText" defaultValue={this.props.user.location} onChange={ () => {this.LocationChangehandler()} } /> </p>
+                    <textarea defaultValue={this.props.user.bio} onChange={ () => {this.BioChangehandler()} } ref="bioText" ></textarea> 
+                    </div>
             ) 
         } 
         else{
-            return <p> {this.props.user.bio} </p>
+            return (
+            <div>
+                <p>You are located at: {this.props.user.location} </p>
+                <p> {this.props.user.bio} </p>
+            </div> )
            
         }
 
@@ -70,6 +77,10 @@ class User extends Component{
         this.props.changeBio(this.refs.bioText.value)
     }
 
+    LocationChangehandler() {
+        //saves changes to location text input
+        this.props.changeLocal(this.refs.localText.value)
+    }
 
     render() {
         if(!this.props.active_user) {
@@ -111,6 +122,7 @@ function matchDispatchToProps(dispatch) {
   return bindActionCreators({
     toggleBio: toggleBio,
     changeBio: changeBio,
+    changeLocal: changeLocal,
     initReviews: initReviews
   }, dispatch)
 }
