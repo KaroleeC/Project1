@@ -1,8 +1,11 @@
 {
   "name": "Project1",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Food rating app",
+  "engines": {
+    "node": "8.9.1"
+  },
+  "main": "./server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server-dev": "nodemon ./server/index.js",
