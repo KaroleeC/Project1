@@ -7,6 +7,8 @@ import Search from './search'
 import Restaurants from './restaurant-list'
 //add list to App div
 import Restaurant from './restaurant'
+import ReviewForm from './ReviewForm'
+
 const App = () => (
   <div>
       App div
@@ -16,6 +18,7 @@ const App = () => (
     <Search />
     <Restaurants />
     <Restaurant />
+    <ReviewForm />
   </div>
 
 )
