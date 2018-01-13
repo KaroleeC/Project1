@@ -23,7 +23,7 @@ class Restaurant extends Component {
 function mapStateToProps(state) {
   
   return {
-    active_restaurant: state.active_restaurant
+    active_restaurant: state.active_restaurant,
   }
 }
 
