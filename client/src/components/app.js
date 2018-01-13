@@ -24,7 +24,7 @@ class App extends React.Component {
           console.log('Reviews?', this.props.reviews)
       })
       .catch(err => { console.log('axois get request err (userdisplay.js', err); } );
-        this.props.activeUser(user);
+        this.props.activeUser(user);// here is a problem
       } else {
         return (
           <div>
