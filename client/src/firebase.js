@@ -1,6 +1,7 @@
 import firebase from 'firebase';
 import keys from '../../config.js'
 
+
 const config = {
   apiKey: keys.FIREBASE_apiKey,
   authDomain: keys.FIREBASE_authDomain,
@@ -51,12 +52,21 @@ const base = {
   logout: () => {
     auth.signOut();
   },
-  // checkLogin: () => {
-  //   auth.OnOAuthStateChange()
-  //     .then(() => {
-        
-  //     })
+  auth: auth,
+  // session: (cb)=> {
+  //   console.log('session!!!!!!!!!')
+  //   auth.onAuthStateChanged(function(user) {
+  //     if (user) {
+  //       // User is signed in.
+  //       console.log(user,cb)
+  //       cb(user)
+  //     } else {
+  //       // No user is signed in.
+  //       cb(null)
+  //     }
+  //   })
   // }
 }
+
 
 export default base;
