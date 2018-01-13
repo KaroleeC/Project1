@@ -44,6 +44,7 @@ class App extends React.Component {
         <Restaurants />
         <Restaurant />
         <Review />
+        <ReviewForm />
        </div>
     )
   }

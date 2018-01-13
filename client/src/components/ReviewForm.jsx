@@ -27,6 +27,7 @@ class ReviewForm extends React.Component {
 
     const average = (this.form.food + this.form.service + this.form.atmosphere + this.form.cleanliness) / 4;
     console.log(average);
+    console.log(this.props.active_user)
 
     // UNCOMMENT TO SEND DATA
     // const payload = {
@@ -113,7 +114,8 @@ class ReviewForm extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    active_restaurant: state.active_restaurant
+    active_restaurant: state.active_restaurant,
+    active_user: state.active_user
   }
 }
 
