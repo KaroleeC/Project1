@@ -41,8 +41,8 @@ class List extends Component{
                 { <img className="img-thumbnail card-img-top" width="30%" height="30%" src={restaurant.image_url} /> }
               </div>
               <div className="card-body">
-                <div className="card-title" style={{fontFamily: 'Raleway'}}>{restaurant.name} </div>
-                {/* <div>{restaurant.location.display_address.join(', ')}</div> */}
+                <div className="card-title text-center" style={{fontFamily: 'Raleway'}}>{restaurant.name} </div>
+                <div className="text-muted text-center" style={{fontFamily: 'Raleway'}}>{restaurant.location.display_address.join(', ')}</div> 
               </div>
             </div>
           )
