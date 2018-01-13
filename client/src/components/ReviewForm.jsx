@@ -3,6 +3,7 @@ import axios from 'axios';
 import { selectOption } from '../actions/index';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+
 class ReviewForm extends React.Component {
   constructor() {
     super();
@@ -24,26 +25,25 @@ class ReviewForm extends React.Component {
     this.form[e.target.name] = parseInt(e.target.value);
   }
 
-  onSubmitHandler (e) {
-   
-    e.preventDefault()
+  onSubmitHandler () {
     const average = (this.form.food + this.form.service + this.form.atmosphere + this.form.cleanliness) / 4;
+
     console.log(average);
     console.log('muthafuckin uid', this.props.active_user.uid)
 
-    // UNCOMMENT TO SEND DATA
-    // const payload = {
-    //   restaurant: this.props.active_restaurant.id,
-    //   rating: average,
-    //   // user: // this.props.active_user.id
-    // }
-    // axios.post('/reviews', payload)
-    //   .then(() => {
+    const payload = {
+      restaurant: this.props.active_restaurant.id,
+      rating: average,
+      user: this.props.active_user.uid
+    };
 
-    //   })
-    //   .catch((err) => {
-    //     console.log('Failed to create review: ', err);
-    //   });
+    axios.post('/api/reviews', payload)
+      .then((data) => {
+        console.log('Sent data: ', data);
+      })
+      .catch((err) => {
+        console.log('Failed to create review: ', err);
+      });
   }
 
   render() {
@@ -144,7 +144,7 @@ class ReviewForm extends React.Component {
           <div>
             <button className="btn btn-primary" onClick={(e) => {
               e.preventDefault()
-              this.onSubmitHandler
+              this.onSubmitHandler()
               this.props.selectOption('restaurant');
             }}>
               Submit
