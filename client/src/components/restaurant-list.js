@@ -9,6 +9,7 @@ import { selectOption } from '../actions/index';
 
 class List extends Component{
     handleRestaurantClick (restaurant) {
+      console.log('DIS CLICK', restaurant)
         axios.get('./api/restaurant', {
             params: {
               ID: restaurant.id
