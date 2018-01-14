@@ -51,7 +51,8 @@
     "redux-promise-middleware": "^5.0.0",
     "redux-thunk": "^2.2.0",
     "sequelize": "^4.28.7",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
   },
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0"
