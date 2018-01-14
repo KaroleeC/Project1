@@ -26,6 +26,7 @@ const reviewsController = {
     .catch(err => { console.log('***ERROR***');});
   },
   getRestaurantReviews: (req, res)=> {
+    console.log('rest reviews query value!!! ', req.query)
     Reviews.findAll({
       where:{
         restaurantId: req.query.ID
