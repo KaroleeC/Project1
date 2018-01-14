@@ -29,7 +29,9 @@ class Search extends React.Component {
     if(this.props.active_user) {
       return (
         <nav className="navbar navbar-light bg-light justify-content-between" >
-          <a className="navbar-brand" href="#">FoodThoughts</a>
+          <a className="navbar-brand" href="#"
+            onClick={(e)=> this.props.selectOption('user')}
+          >FoodThoughts</a>
           <form className="form-inline" >
             <input className="form-control mr-sm-2"  type='text' id='input' placeholder="Search" />
 
@@ -40,7 +42,10 @@ class Search extends React.Component {
               }}
               >Submit</button>
             
-            <button className="btn btn-outline-danger" onClick={base.logout} >Logout</button>
+            <button className="btn btn-outline-danger" onClick={(e)=>{
+              base.logout;
+            }
+            } >Logout</button>
           </form>
         </nav>
       )
