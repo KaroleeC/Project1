@@ -2,8 +2,36 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { selectOption } from '../actions/index';
+import axios from 'axios';
 
 class Restaurant extends Component {
+  constructor() {
+    super();
+    this.state = {
+      restaurants : []
+    }
+  }
+
+  componentWillMount() {
+    setTimeout(() => {
+      axios.get('/api/restaurant',  {
+        params: {
+          restaurantid: this.props.active_restaurant.id
+        }
+      })
+        .then((data) => {
+          console.log('These are this restaurants reviews: ', data);
+          this.setState({
+            restaurants: data.data
+          });
+          console.log('This is resReviews', this.state.restaurants);
+        })
+        .catch((err) => {
+          console.log('Failed to fetch restaurant reviews: ', err);
+        });  
+    }, 50); 
+  }
+
   render() {
    if(!this.props.active_restaurant){
     return (<div>pick restuarant</div>)
@@ -19,12 +47,14 @@ class Restaurant extends Component {
           <hr/>
           <img className="img-fluid rounded" style={{maxWidth: '60%', margin: '30px 20%'}}  src={this.props.active_restaurant.image_url}/>
         </div>
+        {/* Restaurant info */}
         <div className="offset-sm-2 col-sm-8 offset-sm-2 text-muted">
           <hr/>
-          <h4>{this.props.active_restaurant.location.display_address.join(',  ')}</h4>
-          <h4>{this.props.active_restaurant.phone}</h4>
+          <h4 className="text-center" >{this.props.active_restaurant.location.display_address.join(',  ')}</h4>
+          <h4 className="text-center" >{this.props.active_restaurant.phone}</h4>
           <hr/>
         </div>
+        {/* Restaurant reviews */}
         <div className="offset-sm-3 col-sm-6 offset-sm-3" style={{marginTop: '25px'}} >
           <div>
             <button className="offset-sm-5 col-sm-2 offset-sm-5 btn btn-outline-dark" onClick={(e) => 
@@ -36,13 +66,15 @@ class Restaurant extends Component {
           </div>
           <div style={{marginTop: '15px'}}> 
             <ul className="list-group">
-              <li className="list-group-item">Test</li>
-              <li className="list-group-item">Test</li>
-              <li className="list-group-item">Test</li>
-              <li className="list-group-item">Test</li>
+              { 
+                this.state.restaurants.map(item => {
+                  return <li key={item.userid}className="list-group-item">{item.userid}: <p>{item.comments}</p></li>
+                })
+              }
             </ul>
           </div>
         </div>
+        {/* Footer */}
         <footer className="footer row col-sm-12" style={{paddingTop:'5%'}}>
           <div className="container">
             <hr/>
