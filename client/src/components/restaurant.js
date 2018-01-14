@@ -33,6 +33,8 @@ class Restaurant extends Component {
   // }
 
   render() {
+
+    console.log("this is the active restaurant ", this.props.active_restaurant )
    if(!this.props.active_restaurant){
     return (<div>pick restuarant</div>)
   
