@@ -10,6 +10,7 @@ import { selectOption } from '../actions/index';
 class List extends Component{
     handleRestaurantClick (restaurant) {
       console.log('DIS CLICK', restaurant)
+      //geting reviews for this restaurant
         axios.get('./api/restaurant', {
             params: {
               ID: restaurant.id
@@ -74,9 +75,10 @@ function mapStateToProps(state) {
 };
 
 function matchDispatchToProps(dispatch) {
-  return bindActionCreators({selectRestaurant: selectRestaurant,
-                             selectOption: selectOption
-                    }, dispatch)
+  return bindActionCreators({
+    selectRestaurant: selectRestaurant,
+    selectOption: selectOption
+  }, dispatch)
 };
 
 export default connect(mapStateToProps, matchDispatchToProps)(List);
