@@ -29,16 +29,14 @@ class Search extends React.Component {
           <a className="navbar-brand" href=""
             onClick={(e)=>this.props.selectOption('user')}
           >FoodThoughts</a>
-          <form className="form-inline" >
+          <form className="form-inline">
             <input className="form-control mr-sm-2"  type='text' id='input' placeholder="Search" />
-
             <button className="btn btn-outline-primary my-2 my-sm-0" onClick={(e) => {
               e.preventDefault()
               this.search()
               this.props.selectOption('list')
               }}
               >Submit</button>
-            </div>
             <button className="btn btn-outline-danger" onClick={base.logout}>Logout</button>
           </form>
         </nav>
