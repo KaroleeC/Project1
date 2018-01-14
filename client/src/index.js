@@ -10,6 +10,7 @@ import Login from './components/login'
 import store from "./store";
 //create redux storage and pass reducers in createStore
 //
+require('dotenv').config()
 
 class Root extends React.Component {
   render() {
