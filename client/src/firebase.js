@@ -1,6 +1,6 @@
 import firebase from 'firebase';
-import keys from '../../config.js'
-
+//import keys from '../../config.js'
+// changed keys to process.env
 
 const config = {
   apiKey: process.env.FIREBASE_apiKey,
