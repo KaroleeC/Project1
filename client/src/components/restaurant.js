@@ -33,11 +33,8 @@ class Restaurant extends Component {
   // }
 
   render() {
-   if(!this.props.active_restaurant){
-    return (<div>pick restuarant</div>)
-  
-  }
     return (
+      !this.props.active_restaurant ? (<div>pick restuarant</div>) :
       <div>
         {/* Restaurant name and image */}
         <div>
@@ -51,7 +48,7 @@ class Restaurant extends Component {
         <div className="offset-sm-2 col-sm-8 offset-sm-2 text-muted">
           <hr/>
           <h4 className="text-center" >{this.props.active_restaurant.location.display_address.join(',  ')}</h4>
-          <h4 className="text-center" >{this.props.active_restaurant.phone}</h4>
+          <h4 className="text-center" >{this.props.active_restaurant.display_phone}</h4>
           <hr/>
         </div>
         {/* Restaurant reviews */}
