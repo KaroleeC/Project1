@@ -58,9 +58,6 @@
   },
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.26.0"
-  },
-  "scripts":{
-    "start": "node ./server/index.js"
   }
 
 }
