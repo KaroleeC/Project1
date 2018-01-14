@@ -37,9 +37,9 @@ class Search extends React.Component {
               e.preventDefault()
               this.search()
               this.props.selectOption('list')
-              }
+              }}
               >Submit</button>
-            </div>
+            
             <button className="btn btn-outline-danger" onClick={base.logout} >Logout</button>
           </form>
         </nav>
