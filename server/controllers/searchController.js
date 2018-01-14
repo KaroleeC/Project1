@@ -1,6 +1,6 @@
 const axios = require('axios');
-const keys = require('.././config.js');
-
+//const keys = require('../../config.js');
+// changed keys to process.env
 const searchController = {
   search: (req, res) =>{
     const arr = req.body.query;
