@@ -9,7 +9,7 @@ const searchController = {
     const options = {
       method: 'GET',
       url: url,
-      headers: {Authorization: process.env.AUTHORIZATION}
+      headers: {Authorization: process.env.AUTHORIZATION }
     }
      axios(options)
      .then(({ data }) => {
