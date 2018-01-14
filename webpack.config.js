@@ -32,8 +32,7 @@ module.exports = {
         'FIREBASE_STOREBUCKET': process.env.FIREBASE_STOREBUCKET,
         'FIREBASE_MESSAGEID': process.env.FIREBASE_MESSAGEID
       }
-    })
-
+    }),
   ]
 
 }
