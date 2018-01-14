@@ -26,7 +26,7 @@ class List extends Component{
       console.log(this.props.restuarants)
       
       return (
-        <div className="card-columns">
+        <div className="card-columns" style={{marginTop: '25px', marginRight: '4%'}} >
         {this.props.restaurants.map((restaurant) => {
           return (
             <div className="card"
