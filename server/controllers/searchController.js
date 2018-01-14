@@ -1,5 +1,5 @@
 const axios = require('axios');
-const keys = require('../../config.js');
+const keys = require('.././config.js');
 
 const searchController = {
   search: (req, res) =>{
