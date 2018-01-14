@@ -19,12 +19,14 @@ class Restaurant extends Component {
           <hr/>
           <img className="img-fluid rounded" style={{maxWidth: '60%', margin: '30px 20%'}}  src={this.props.active_restaurant.image_url}/>
         </div>
+        {/* Restaurant info */}
         <div className="offset-sm-2 col-sm-8 offset-sm-2 text-muted">
           <hr/>
-          <h4>{this.props.active_restaurant.location.display_address.join(',  ')}</h4>
-          <h4>{this.props.active_restaurant.phone}</h4>
+          <h4 className="text-center" >{this.props.active_restaurant.location.display_address.join(',  ')}</h4>
+          <h4 className="text-center" >{this.props.active_restaurant.phone}</h4>
           <hr/>
         </div>
+        {/* Restaurant reviews */}
         <div className="offset-sm-3 col-sm-6 offset-sm-3" style={{marginTop: '25px'}} >
           <div>
             <button className="offset-sm-5 col-sm-2 offset-sm-5 btn btn-outline-dark" onClick={(e) => 
@@ -43,6 +45,7 @@ class Restaurant extends Component {
             </ul>
           </div>
         </div>
+        {/* Footer */}
         <footer className="footer row col-sm-12" style={{paddingTop:'5%'}}>
           <div className="container">
             <hr/>

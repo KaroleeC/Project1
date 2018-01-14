@@ -7,9 +7,6 @@ import { selectOption } from '../actions/index';
 import Login from './login';
 import base from '../firebase.js';
 
-
-
-
 class Search extends React.Component { 
   search () {
     let inputValue =  document.getElementById('input').value.split(',');
@@ -41,8 +38,8 @@ class Search extends React.Component {
               this.props.selectOption('list')
               }}
               >Submit</button>
-            
-            <button className="btn btn-outline-danger" onClick={base.logout} >Logout</button>
+            </div>
+            <button className="btn btn-outline-danger" onClick={base.logout}>Logout</button>
           </form>
         </nav>
       )

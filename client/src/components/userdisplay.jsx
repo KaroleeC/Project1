@@ -34,7 +34,7 @@ class User extends Component {
     if( this.props.reviews.length <= 0 ){
         //if no reviews
       return (
-        <div> You have no food thoughts! <br/> Search for a restaurant to submit your thoughts... </div> 
+        <div> Looks like you have no food thoughts. <br/> Search for a restaurant to submit your thoughts... </div> 
       )
     } else {
       //if they have reviews
