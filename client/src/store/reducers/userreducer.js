@@ -2,8 +2,8 @@
 const defaultState = {  
     id: 1,
     name: 'Anonymous',
-    location: 'Nowhere, CA',
-    bio: 'blah, blah',
+    location: 'Los Angeles, CA',
+    bio: 'Your info here',
 }
 
 
