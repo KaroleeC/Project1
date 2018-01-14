@@ -12,5 +12,5 @@ app.use(express.static(path.resolve(__dirname, '../client/public')));
 app.use('/api/', routes);
 
 app.listen(port, function(){
-    console.log('server now is listening on PORT 3000')
+    console.log(`server now is listening on ${port}`)
 })
