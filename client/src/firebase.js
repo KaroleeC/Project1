@@ -3,14 +3,14 @@ import firebase from 'firebase';
 // changed keys to process.env
 
 const config = {
-  apiKey: process.env.FIREBASE_apiKey,
-  authDomain: process.env.FIREBASE_authDomain,
-  databaseURL: process.env.FIREBASE_dbURL,
-  projectId: process.env.FIREBASE_projectID,
-  storageBucket: process.env.FIREBASE_storeBucket,
-  messagingSenderId: process.env.FIREBASE_messageID
+  apiKey: process.env.FIREBASE_APIKEY,
+  authDomain: process.env.FIREBASE_AUTHDOMAIN,
+  databaseURL: process.env.FIREBASEDBURL,
+  projectId: process.env.FIREBASE_PROJECTID,
+  storageBucket: process.env.FIREBASE_STOREBUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGEID
 };
-console.log("****", process.env.FIREBASE_apiKey);
+console.log("****", process.env.FIREBASE_APIKEY);
 firebase.initializeApp(config);
 
 let auth = firebase.auth();
