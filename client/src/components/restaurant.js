@@ -2,8 +2,36 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { selectOption } from '../actions/index';
+import axios from 'axios';
 
 class Restaurant extends Component {
+  constructor() {
+    super();
+    this.state = {
+      restaurants : []
+    }
+  }
+
+  componentWillMount() {
+    setTimeout(() => {
+      axios.get('/api/restaurant',  {
+        params: {
+          restaurantid: this.props.active_restaurant.id
+        }
+      })
+        .then((data) => {
+          console.log('These are this restaurants reviews: ', data);
+          this.setState({
+            restaurants: data.data
+          });
+          console.log('This is resReviews', this.state.restaurants);
+        })
+        .catch((err) => {
+          console.log('Failed to fetch restaurant reviews: ', err);
+        });  
+    }, 50); 
+  }
+
   render() {
    if(!this.props.active_restaurant){
     return (<div>pick restuarant</div>)
@@ -38,10 +66,11 @@ class Restaurant extends Component {
           </div>
           <div style={{marginTop: '15px'}}> 
             <ul className="list-group">
-              <li className="list-group-item">Test</li>
-              <li className="list-group-item">Test</li>
-              <li className="list-group-item">Test</li>
-              <li className="list-group-item">Test</li>
+              { 
+                this.state.restaurants.map(item => {
+                  return <li key={item.userid}className="list-group-item">{item.userid}: <p>{item.comments}</p></li>
+                })
+              }
             </ul>
           </div>
         </div>
