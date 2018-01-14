@@ -12,25 +12,25 @@ class Restaurant extends Component {
     }
   }
 
-  componentWillMount() {
-    setTimeout(() => {
-      axios.get('/api/restaurant',  {
-        params: {
-          restaurantid: this.props.active_restaurant.id
-        }
-      })
-        .then((data) => {
-          console.log('These are this restaurants reviews: ', data);
-          this.setState({
-            restaurants: data.data
-          });
-          console.log('This is resReviews', this.state.restaurants);
-        })
-        .catch((err) => {
-          console.log('Failed to fetch restaurant reviews: ', err);
-        });  
-    }, 50); 
-  }
+  // componentWillMount() {
+  //   setTimeout(() => {
+  //     axios.get('/api/restaurant',  {
+  //       params: {
+  //         restaurantid: this.props.active_restaurant.id
+  //       }
+  //     })
+  //       .then((data) => {
+  //         console.log('These are this restaurants reviews: ', data);
+  //         this.setState({
+  //           restaurants: data.data
+  //         });
+  //         console.log('This is resReviews', this.state.restaurants);
+  //       })
+  //       .catch((err) => {
+  //         console.log('Failed to fetch restaurant reviews: ', err);
+  //       });  
+  //   }, 50); 
+  // }
 
   render() {
    if(!this.props.active_restaurant){
@@ -65,13 +65,13 @@ class Restaurant extends Component {
             }> Add Review</button>
           </div>
           <div style={{marginTop: '15px'}}> 
-            <ul className="list-group">
+            {/* <ul className="list-group">
               { 
                 this.state.restaurants.map(item => {
                   return <li key={item.userid}className="list-group-item">{item.userid}: <p>{item.comments}</p></li>
                 })
               }
-            </ul>
+            </ul> */}
           </div>
         </div>
         {/* Footer */}
