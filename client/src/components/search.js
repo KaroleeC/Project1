@@ -31,15 +31,17 @@ class Search extends React.Component {
         <nav className="navbar navbar-light bg-light justify-content-between" >
           <a className="navbar-brand" href="#" onClick={() => this.props.selectOption('user')}>FoodThoughts</a>
           <form className="form-inline" >
-            <input className="form-control mr-sm-2"  type='text' id='input' placeholder="Search" />
-            <button className="btn btn-outline-primary my-2 my-sm-0" onClick={(e) => {
-              e.preventDefault()
-              this.search()
-              this.props.selectOption('list')
+            <div style={{marginRight: '5px'}}>
+              <input className="form-control mr-sm-2"  type='text' id='input' placeholder="Search" />
+              <button className="btn btn-outline-primary" onClick={(e) => {
+                e.preventDefault()
+                this.search()
+                this.props.selectOption('list')
+                }
               }
-            }
-            >Submit</button>
-            <button className="btn btn-outline-danger my-s2 my-sm-0" onClick={base.logout} >Logout</button>
+              >Submit</button>
+            </div>
+            <button className="btn btn-outline-danger" onClick={base.logout} >Logout</button>
           </form>
         </nav>
       )
