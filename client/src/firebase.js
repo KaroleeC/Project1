@@ -10,7 +10,7 @@ const config = {
   storageBucket: process.env.FIREBASE_STOREBUCKET,
   messagingSenderId: process.env.FIREBASE_MESSAGEID
 };
-
+console.log("****", process.env.FIREBASE_APIKEY);
 firebase.initializeApp(config);
 
 let auth = firebase.auth();
