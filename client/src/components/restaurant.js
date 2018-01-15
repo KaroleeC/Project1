@@ -34,7 +34,7 @@ class Restaurant extends Component {
 
   render() {
     return (
-      !this.props.active_restaurant ? (<div>pick restuarant</div>) :
+      !this.props.active_restaurant ? null :
       <div>
         {/* Restaurant name and image */}
         <div>

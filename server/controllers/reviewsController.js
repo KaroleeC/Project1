@@ -35,6 +35,9 @@ const reviewsController = {
       console.log('inside of getRestaurantReviews here is all the data query from database ====>>>>>', data)
       res.status(201).send([{restaurantid:1, comments:'good restaurant!!!!!!', rating:5, userid:'shayne'}])
     })
+    .catch(err => {
+      res.status(500).send(err);
+    })
   }
 }
 
