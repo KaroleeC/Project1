@@ -1,9 +1,7 @@
 const Sequelize = require('sequelize');
-const db = new Sequelize('FoodThoughts', 'root', '', {
-  host: 'localhost',
-  port: 3306,
-  dialect: 'mysql',
-});
+const keys = require('../config.js');
+
+const db = new Sequelize(keys.SQLURL);
 
 db.authenticate()
   .then(() => {
