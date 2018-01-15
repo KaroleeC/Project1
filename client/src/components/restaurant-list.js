@@ -15,7 +15,7 @@ class List extends Component{
       //render restaurant component
       //get reviews for that restaurant
       console.log('DIS CLICK', restaurant)
-      this.props.selectRestaurant(restaurant, response.data)
+      this.props.selectRestaurant(restaurant)
       //vvv geting reviews for this restaurant vvv
         axios.get('./api/restaurant', {
             params: {
