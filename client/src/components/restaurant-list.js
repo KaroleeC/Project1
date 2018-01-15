@@ -8,9 +8,14 @@ import { selectOption } from '../actions/index';
 
 
 class List extends Component{
+
     handleRestaurantClick (restaurant) {
+      //this should: 
+      //set active restaurant data
+      //render restaurant component
+      //get reviews for that restaurant
       console.log('DIS CLICK', restaurant)
-      //geting reviews for this restaurant
+      //vvv geting reviews for this restaurant vvv
         axios.get('./api/restaurant', {
             params: {
               ID: restaurant.id
@@ -18,6 +23,7 @@ class List extends Component{
           })
         .then((response) => {
           console.log('here is the response', response.data)
+          //this 
           this.props.selectRestaurant(restaurant, response.data)
         })
         .catch((err) => {
