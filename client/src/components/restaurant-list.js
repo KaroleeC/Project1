@@ -15,6 +15,7 @@ class List extends Component{
       //render restaurant component
       //get reviews for that restaurant
       console.log('DIS CLICK', restaurant)
+      this.props.selectRestaurant(restaurant, response.data)
       //vvv geting reviews for this restaurant vvv
         axios.get('./api/restaurant', {
             params: {
@@ -23,8 +24,8 @@ class List extends Component{
           })
         .then((response) => {
           console.log('here is the response', response.data)
-          //this 
-          this.props.selectRestaurant(restaurant, response.data)
+          
+          //this.props.selectRestaurant(restaurant, response.data)
         })
         .catch((err) => {
           console.log('error from list axios', err)

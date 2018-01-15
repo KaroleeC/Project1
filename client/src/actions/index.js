@@ -3,7 +3,7 @@ const axios = require('axios')
 
 
 export const selectRestaurant = (restaurant, data) => {
-
+  console.log('select Rest RAN!! ');
   return {
     type: "RESTAURANT_SELECTED",
     payload: {...restaurant, reviews: data},
