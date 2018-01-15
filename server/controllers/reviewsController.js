@@ -17,13 +17,13 @@ const reviewsController = {
           res.status(201).send(data);
         });
       })
-      .catch(err => { console.log('***ERROR***:', err);});
+      .catch(err => { console.log('***Create Review ERROR***:', err);});
   },
   GetUserReview: (req, res) => {
     Reviews.findAll({ where:{ userid: req.query.userid } })
     .then(data => {
       res.status(201).send(data)})
-    .catch(err => { console.log('***ERROR***');});
+    .catch(err => { console.log('***Get User Review ERROR***');});
   },
   getRestaurantReviews: (req, res)=> {
     console.log('rest reviews query value!!! ', req.query)
