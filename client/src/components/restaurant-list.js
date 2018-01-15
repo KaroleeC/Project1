@@ -10,13 +10,11 @@ import { selectOption } from '../actions/index';
 class List extends Component{
 
     handleRestaurantClick (restaurant) {
-      //this should: 
-      //set active restaurant data
-      //render restaurant component
+      /*this should: 
+      set active restaurant data DONE!
+      render restaurant component DONE!*/
+      this.props.selectRestaurant(restaurant);
       //get reviews for that restaurant
-      console.log('DIS CLICK', restaurant)
-      this.props.selectRestaurant(restaurant)
-      //vvv geting reviews for this restaurant vvv
         axios.get('./api/restaurant', {
             params: {
               ID: restaurant.id
