@@ -21,7 +21,7 @@ class List extends Component{
             }
           })
         .then((response) => {
-          console.log('here is the response', response.data)
+          console.log('here is the response', response.data);
           
           //this.props.selectRestaurant(restaurant, response.data)
         })
