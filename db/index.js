@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const keys = require('../config.js');
 
-const db = new Sequelize(keys.SQLURL);
+const db = new Sequelize(process.env.ELEPHANTSQL_URL);
 
 db.authenticate()
   .then(() => {

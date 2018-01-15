@@ -31,7 +31,8 @@ module.exports = {
         'FIREBASEDBURL': process.env.FIREBASEDBURL,
         'FIREBASE_PROJECTID': process.env.FIREBASE_PROJECTID,
         'FIREBASE_STOREBUCKET': process.env.FIREBASE_STOREBUCKET,
-        'FIREBASE_MESSAGEID': process.env.FIREBASE_MESSAGEID
+        'FIREBASE_MESSAGEID': process.env.FIREBASE_MESSAGEID,
+        'ELEPHANTSQL_URL': process.env.ELEPHANTSQL_URL
       }
     }),
   ]
